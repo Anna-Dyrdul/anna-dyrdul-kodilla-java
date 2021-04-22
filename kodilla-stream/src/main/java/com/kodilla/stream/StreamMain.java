@@ -1,29 +1,22 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.beautifier.PoemDecorator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
 
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
 
     public static void main(String[] args) {
+        Forum forum = new Forum();
+        Map< Integer, ForumUser> theResultMapOfUsers = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getDateOfBirth().getYear()<= LocalDate.now().minusYears(20).getYear()
+                        && forumUser.getSex()=='M'
+                        && forumUser.getNumberOfPosts()>0)
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        System.out.println("Making my text pretty");
-
-        poemBeautifier.beautify("beautiful day.", "What a ", (textNormal, textBeautiful) -> textBeautiful + textNormal);
-        poemBeautifier.beautify("beautiful day.", "What a ", (textNormal, textBeautiful) -> textBeautiful + "very " +textNormal);
-        poemBeautifier.beautify("beautiful day.", "What a ", (textNormal, textBeautiful) -> {
-            String myPrettyStr = textBeautiful + textNormal;
-            return myPrettyStr.toUpperCase();
-        });
-        poemBeautifier.beautify("beautiful day.", "What a ", (textNormal, textBeautiful) -> {
-            String myPrettyStr = textBeautiful + textNormal;
-            return myPrettyStr.substring(7);
-        });
-        poemBeautifier.beautify("beautiful day.", "What a ", (textNormal, textBeautiful) -> {
-            String myPrettyStr = textBeautiful + textNormal;
-            return myPrettyStr +  myPrettyStr.length();
-        });
+        System.out.println(theResultMapOfUsers);
     }
 }
