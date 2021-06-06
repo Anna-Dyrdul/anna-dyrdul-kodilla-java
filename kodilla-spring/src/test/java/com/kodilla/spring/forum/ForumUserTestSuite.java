@@ -24,7 +24,4 @@ public class ForumUserTestSuite {
         assertEquals("John Smith", name);
     }
 }
-/*
-    Napisz test testGetUsername() pobierający z kontekstu aplikacji
-uchwyt do beana klasy ForumUser. Test powinien pobierać username
-        i sprawdzać przy pomocy asercji czy zwróconą wartością jest "John Smith".*/
+
