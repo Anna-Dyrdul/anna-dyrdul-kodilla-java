@@ -10,13 +10,15 @@ import java.util.stream.Collectors;
 public class StreamMain {
 
     public static void main(String[] args) {
-        Forum forum = new Forum();
+        /*Forum forum = new Forum();
         Map< Integer, ForumUser> theResultMapOfUsers = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getDateOfBirth().getYear()<= LocalDate.now().minusYears(20).getYear()
                         && forumUser.getSex()=='M'
                         && forumUser.getNumberOfPosts()>0)
                 .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
 
-        System.out.println(theResultMapOfUsers);
+        System.out.println(theResultMapOfUsers);*/
+
+        
     }
 }
