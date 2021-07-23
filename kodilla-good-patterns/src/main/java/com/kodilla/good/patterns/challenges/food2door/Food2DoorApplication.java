@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-
 public class Food2DoorApplication {
     public static void main(String[] args) {
         PurchaseRequestRetriever purchaseRequestRetriever = new PurchaseRequestRetriever();
