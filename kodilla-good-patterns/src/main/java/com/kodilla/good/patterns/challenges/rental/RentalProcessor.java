@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges.rental;
 
 public class RentalProcessor {
 
-    private InformationService informationService;
+    /*private InformationService informationService;
     private RentalService rentalService;
     private RentalRepository rentalRepository;
 
@@ -24,6 +24,6 @@ public class RentalProcessor {
         } else {
             return new RentalDto(rentRequest.getUser(), false);
         }
-    }
+    }*/
 
 }

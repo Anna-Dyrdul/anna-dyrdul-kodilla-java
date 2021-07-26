@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class RentRequest {
 
-    private User user;
+   /* private User user;
     private LocalDateTime from;
     private LocalDateTime to;
 
@@ -18,5 +18,5 @@ public class RentRequest {
 
     public LocalDateTime getFrom() { return from; }
 
-    public LocalDateTime getTo() { return to; }
+    public LocalDateTime getTo() { return to; }*/
 }

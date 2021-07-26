@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.challenges.rental;
 
 public class RentalDto {
-    public User user;
+    /*public User user;
     public boolean isRented;
 
     public RentalDto(final User user, final boolean isRented) {
@@ -12,5 +12,5 @@ public class RentalDto {
     public User getUser() { return user; }
 
     public boolean isRented() { return isRented; }
-
+*/
 }
