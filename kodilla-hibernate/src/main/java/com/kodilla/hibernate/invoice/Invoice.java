@@ -1,7 +1,5 @@
 package com.kodilla.hibernate.invoice;
 
-import com.kodilla.hibernate.task.Task;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;

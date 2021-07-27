@@ -36,10 +36,8 @@ public class Item {
         this.id = id;
     }
 
-   // @NotNull
-    //@Column(name = "PRODUCT")
     @ManyToOne
-    //@JoinColumn(name = "PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
@@ -79,6 +77,7 @@ public class Item {
     }
 
     @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }

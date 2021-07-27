@@ -16,40 +16,43 @@ public class InvoiceDaoTestSuite {
     private InvoiceDao invoiceDao;
 
     @Autowired
-    private ItemDao itemDao;
+    private ProductDao productDao;
 
     @Autowired
-    private ProductDao productDao;
+    private ItemDao itemDao;
 
     @Test
     void testInvoiceDaoSave() {
         //Given
         Product product1 = new Product("product1");
         Product product2 = new Product("product2");
-        //Product product3 = new Product("product3");
 
         Item item1 = new Item(new BigDecimal(12.20), 3,new BigDecimal(13), product1);
-        Item item2 = new Item(new BigDecimal(26.40), 3,new BigDecimal(123), product1);
-        Item item3 = new Item(new BigDecimal(64.60), 3,new BigDecimal(635), product2);
+        Item item2 = new Item(new BigDecimal(26.40), 6,new BigDecimal(123), product1);
+        Item item3 = new Item(new BigDecimal(64.60), 4,new BigDecimal(635), product2);
 
         Invoice invoice = new Invoice("48742");
+        invoiceDao.save(invoice);
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setInvoice(invoice);
+
+        product1.getItem().add(item1);
+        product1.getItem().add(item2);
+        product2.getItem().add(item3);
+        productDao.save(product1);
+        productDao.save(product2);
 
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
         invoice.getItems().add(item3);
 
         //When
-        invoiceDao.save(invoice);
         int invoiceDaoId = invoice.getId();
-        //itemDao.save(item1);
         int itemDao1ID = item1.getId();
-        //itemDao.save(item2);
-        int  itemDao2ID = item2.getId();
-        //itemDao.save(item3);
+        int itemDao2ID = item2.getId();
         int itemDao3ID = item3.getId();
-        //productDao.save(product1);
         int productDao1Id = product1.getId();
-        //productDao.save(product2);
         int productDao2Id = product2.getId();
 
         //Then
@@ -62,12 +65,12 @@ public class InvoiceDaoTestSuite {
 
         //CleanUp
         try {
+            productDao.deleteById(productDao1Id);
+            productDao.deleteById(productDao2Id);
             invoiceDao.deleteById(invoiceDaoId);
-            /*itemDao.deleteById(itemDao1ID);
+            itemDao.deleteById(itemDao1ID);
             itemDao.deleteById(itemDao2ID);
             itemDao.deleteById(itemDao3ID);
-            productDao.deleteById(productDao1Id);
-            productDao.deleteById(productDao2Id);*/
         } catch (Exception e) {
             //do nothing
         }
