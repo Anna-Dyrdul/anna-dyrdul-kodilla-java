@@ -33,7 +33,7 @@ public class FlightService {
 
     public List<Flight> findFlightThrough(String cityName) {
         return mapOfFlights.entrySet().stream()
-                .filter(e -> e.getKey().getIntermediateAirport().equals(cityName))
+                .filter(e -> e.getKey().getArrivalAirport().equals(cityName) || e.getKey().getDepartureAirport().equals(cityName))
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
     }

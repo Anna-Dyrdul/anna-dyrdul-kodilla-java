@@ -14,9 +14,9 @@ public class FlightServiceTestSuite {
     @BeforeAll
     public static void beforeAllTests() {
         flightService.createFlight(new Flight("Gdańsk", "Wrocław"),true);
-        flightService.createFlight(new Flight("Wrocław", "Kraków", "Gdańsk"),true);
+        flightService.createFlight(new Flight("Wrocław", "Gdańsk"),true);
         flightService.createFlight(new Flight("Porto", "Warszawa"), true);
-        flightService.createFlight(new Flight("Gdańsk", "Kraków", "Wrocław"),true);
+        flightService.createFlight(new Flight("Gdańsk", "Kraków"),true);
     }
 
     @Test
@@ -52,6 +52,6 @@ public class FlightServiceTestSuite {
         //When
         List<Flight> listOfFlightsThroughChosenCity = flightService.findFlightThrough("Kraków");
         //Then
-        assertEquals(2, listOfFlightsThroughChosenCity.size());
+        assertEquals(1, listOfFlightsThroughChosenCity.size());
     }
 }
